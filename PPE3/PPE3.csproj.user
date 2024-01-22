@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="ajouterAllAntec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ajouterMedoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ajouterPat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="incompatible.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Medicament.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Ordonance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Patient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
