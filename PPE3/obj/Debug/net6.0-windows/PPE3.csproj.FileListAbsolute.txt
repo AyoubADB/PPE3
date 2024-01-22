@@ -45,3 +45,4 @@ C:\Users\latitude\BTS\Projet\PPE3\PPE3.app\PPE3\obj\Debug\net6.0-windows\PPE3.Lo
 C:\Users\latitude\BTS\Projet\PPE3\PPE3.app\PPE3\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
 C:\Users\latitude\BTS\Projet\PPE3\PPE3.app\PPE3\bin\Debug\net6.0-windows\itextsharp.dll
 C:\Users\latitude\BTS\Projet\PPE3\PPE3.app\PPE3\obj\Debug\net6.0-windows\PPE3.incompatible.resources
+C:\Users\latitude\BTS\Projet\PPE3\PPE3.app\PPE3\obj\Debug\net6.0-windows\PPE3.sourcelink.json

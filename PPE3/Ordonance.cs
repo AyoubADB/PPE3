@@ -178,9 +178,9 @@ namespace PPE3
             //Page PDF 
             Paragraph PNomPat = new Paragraph($"Nom patient : " + comboBoxNomPatOrdo.Text); ;
             Paragraph PNomMedc = new Paragraph($"Nom Medecin : " + comboBoxMedcOrdo.Text);
-            Paragraph PNomMedoc = new Paragraph($"Nom Medicament : " + comboBoxNomPatOrdo.Text + "\n\n\n\n\n");
-            Paragraph PDureeTraitement = new Paragraph($"Durée de traitement : {ordo.PosologieOrdo} jours" + "\n\n");
-            Paragraph PPosologie = new Paragraph($"Durée de traitement : {ordo.PosologieOrdo} jours" + "\n\n");
+            Paragraph PNomMedoc = new Paragraph($"Nom Medicament : " + comboBoxMedocOrdo.Text + "\n\n\n\n\n");
+            Paragraph PDureeTraitement = new Paragraph($"Durée de traitement : {ordo.DureeTraitement} jours" + "\n\n");
+            Paragraph PPosologie = new Paragraph($"Posologie : {ordo.PosologieOrdo} jours" + "\n\n");
             Paragraph PInstruction = new Paragraph($"Instruction : {ordo.InstructionOrdo}");
 
             PNomPat.Alignment = Element.ALIGN_LEFT;
