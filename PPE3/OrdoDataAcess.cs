@@ -107,7 +107,7 @@ namespace PPE3
             return medecins;
         }
 
-        public int AddOrdoToDb(Ordo ordo, int idPatient, int idMedecin, int idMedoc)
+        public int AddOrdoToDb(Ordo ordo, int idPatient, int idMedecin, int idMedoc, int idMedocFacult)
         {
             List<All> allergiesPatient = GetAllergiesPatient(idPatient);
             if (IncompatibleWithAllergies(idMedoc, allergiesPatient))
@@ -127,8 +127,8 @@ namespace PPE3
             {
                 conn.Open();
 
-                string query = "INSERT INTO ordonnance (posologie_ordo, duree_traitement_ordo, instruction_ordo, id_pat, id_medc, id_medoc) " +
-                               "VALUE (@Posologie, @DureeTraitement, @Instruction, @IdPatient, @IdMedecin, @IdMedoc)";
+                string query = "INSERT INTO ordonnance (posologie_ordo, duree_traitement_ordo, instruction_ordo, id_pat, id_medc, id_medoc, id_2e_medoc) " +
+                               "VALUE (@Posologie, @DureeTraitement, @Instruction, @IdPatient, @IdMedecin, @IdMedoc, @IdMedocFacult)";
                 using (MySqlCommand command = new MySqlCommand(query, conn))
                 {
                     command.Parameters.AddWithValue("@Posologie", ordo.PosologieOrdo);
@@ -137,6 +137,7 @@ namespace PPE3
                     command.Parameters.AddWithValue("@IdPatient", idPatient);
                     command.Parameters.AddWithValue("@IdMedecin", idMedecin);
                     command.Parameters.AddWithValue("@IdMedoc", idMedoc);
+                    command.Parameters.AddWithValue("@IdMedocFacult", idMedocFacult);
                     int result = command.ExecuteNonQuery();
                     conn.Close();
                     return result;

@@ -23,6 +23,7 @@ namespace PPE3
             afficherNomPatOrdo();
             afficherNomMedcOrdo();
             afficherNomMedocOrdo();
+            afficherNomMedocFacultOrdo();
             panel1.MouseDown += panel1_MouseDown;
             panel1.MouseMove += panel1_MouseMove;
             panel1.MouseUp += panel1_MouseUp;
@@ -41,6 +42,20 @@ namespace PPE3
 
             comboBoxMedocOrdo.DataSource = medicament;
             comboBoxMedocOrdo.DisplayMember = "NonMedoc";
+        }
+
+        public void afficherNomMedocFacultOrdo()
+        {
+            List<Medoc> medicament = dataAcessPatOrdo.GetNomMedocOrdoDb();
+
+            List<Medoc> medicamentsAvecVide = new List<Medoc>();
+
+            medicamentsAvecVide.Add(new Medoc { MedicamentId = -1, NomMedoc = "" });
+
+            medicamentsAvecVide.AddRange(medicament);
+
+            comboBoxMedocFacultative.DataSource = medicamentsAvecVide;
+            comboBoxMedocFacultative.DisplayMember = "NonMedoc";
         }
 
         public void afficherNomMedcOrdo()
@@ -68,6 +83,12 @@ namespace PPE3
             return selectedMedoc != null ? selectedMedoc.MedicamentId : -1;
         }
 
+        private int GetSelectedMedocFacultativeId()
+        {
+            Medoc selectedMedocFacultative = (Medoc)comboBoxMedocFacultative.SelectedItem;
+            return selectedMedocFacultative != null ? selectedMedocFacultative.MedicamentId : -1;
+        }
+
         private void comboBoxNomPatOrdo_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
@@ -84,12 +105,12 @@ namespace PPE3
 
         private void richTextBoxPosologie_TextChanged(object sender, EventArgs e)
         {
-
+            richTextBoxPosologie.ForeColor = Color.White;
         }
 
         private void richTextBoxInstruction_TextChanged(object sender, EventArgs e)
         {
-
+            richTextBoxInstruction.ForeColor = Color.White;
         }
 
         private void dateDebTrait_ValueChanged(object sender, EventArgs e)
@@ -118,6 +139,7 @@ namespace PPE3
                 int idPatient = GetSelectedPatientId();
                 int idMedecin = GetSelectedMedecinId();
                 int idMedoc = GetSelectedMedocId();
+                int idMedocFacult = GetSelectedMedocFacultativeId();
 
                 Ordo newOrdo = new Ordo(posologie, dureeTraitement.ToString(), instruction);
 
@@ -137,7 +159,7 @@ namespace PPE3
 
 
 
-                int result = dataAcessPatOrdo.AddOrdoToDb(newOrdo, idPatient, idMedecin, idMedoc);
+                int result = dataAcessPatOrdo.AddOrdoToDb(newOrdo, idPatient, idMedecin, idMedoc, idMedocFacult);
 
                 if (result > 0)
                 {
@@ -178,7 +200,8 @@ namespace PPE3
             //Page PDF 
             Paragraph PNomPat = new Paragraph($"Nom patient : " + comboBoxNomPatOrdo.Text); ;
             Paragraph PNomMedc = new Paragraph($"Nom Medecin : " + comboBoxMedcOrdo.Text);
-            Paragraph PNomMedoc = new Paragraph($"Nom Medicament : " + comboBoxMedocOrdo.Text + "\n\n\n\n\n");
+            Paragraph PNomMedoc = new Paragraph($"Nom Medicament : " + comboBoxMedocOrdo.Text );
+            Paragraph PNomMedocFacult = new Paragraph($"Nom du 2ème Médicament : " + comboBoxMedocFacultative.Text + "\n\n\n\n\n");
             Paragraph PDureeTraitement = new Paragraph($"Durée de traitement : {ordo.DureeTraitement} jours" + "\n\n");
             Paragraph PPosologie = new Paragraph($"Posologie : {ordo.PosologieOrdo} jours" + "\n\n");
             Paragraph PInstruction = new Paragraph($"Instruction : {ordo.InstructionOrdo}");
@@ -186,6 +209,7 @@ namespace PPE3
             PNomPat.Alignment = Element.ALIGN_LEFT;
             PNomMedc.Alignment = Element.ALIGN_RIGHT;
             PNomMedoc.Alignment = Element.ALIGN_LEFT;
+            PNomMedocFacult.Alignment = Element.ALIGN_RIGHT;
             PDureeTraitement.Alignment = Element.ALIGN_CENTER;
             PPosologie.Alignment = Element.ALIGN_CENTER;
             PInstruction.Alignment = Element.ALIGN_CENTER;
@@ -193,6 +217,7 @@ namespace PPE3
             doc.Add(PNomPat);
             doc.Add(PNomMedc);
             doc.Add(PNomMedoc);
+            doc.Add(PNomMedocFacult);
             doc.Add(PDureeTraitement);
             doc.Add(PPosologie);
             doc.Add(PInstruction);
@@ -228,6 +253,16 @@ namespace PPE3
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void richTextBoxPosologie_Click(object sender, EventArgs e)
+        {
+            richTextBoxPosologie.SelectAll();
+        }
+
+        private void richTextBoxInstruction_Click(object sender, EventArgs e)
+        {
+            richTextBoxInstruction.SelectAll();
         }
     }
 }

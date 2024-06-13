@@ -58,17 +58,17 @@
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             affichageMedoc.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            affichageMedoc.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             affichageMedoc.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            affichageMedoc.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             affichageMedoc.BackgroundColor = Color.FromArgb(64, 64, 64);
-            affichageMedoc.BorderStyle = BorderStyle.None;
-            affichageMedoc.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            affichageMedoc.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(4, 137, 177);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(64, 64, 64);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(4, 137, 177);
             affichageMedoc.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             affichageMedoc.ColumnHeadersHeight = 30;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -95,7 +95,7 @@
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
             affichageMedoc.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             affichageMedoc.RowHeadersVisible = false;
-            affichageMedoc.RowHeadersWidth = 150;
+            affichageMedoc.RowHeadersWidth = 300;
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle5.BackColor = Color.White;
             dataGridViewCellStyle5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
@@ -105,8 +105,9 @@
             affichageMedoc.RowsDefaultCellStyle = dataGridViewCellStyle5;
             affichageMedoc.RowTemplate.Height = 33;
             affichageMedoc.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            affichageMedoc.Size = new Size(583, 610);
+            affichageMedoc.Size = new Size(658, 732);
             affichageMedoc.TabIndex = 1;
+            affichageMedoc.UseWaitCursor = true;
             affichageMedoc.CellContentClick += dataGridView1_CellContentClick;
             // 
             // ajouter
@@ -122,6 +123,7 @@
             ajouter.Size = new Size(209, 190);
             ajouter.TabIndex = 0;
             ajouter.UseVisualStyleBackColor = false;
+            ajouter.UseWaitCursor = true;
             ajouter.Click += ajouter_Click;
             // 
             // refreshGridView
@@ -137,6 +139,7 @@
             refreshGridView.Size = new Size(209, 190);
             refreshGridView.TabIndex = 2;
             refreshGridView.UseVisualStyleBackColor = false;
+            refreshGridView.UseWaitCursor = true;
             refreshGridView.Click += refreshGridView_Click;
             // 
             // panel1
@@ -146,8 +149,9 @@
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1252, 38);
+            panel1.Size = new Size(1327, 38);
             panel1.TabIndex = 6;
+            panel1.UseWaitCursor = true;
             panel1.MouseDown += panel1_MouseDown;
             panel1.MouseMove += panel1_MouseMove;
             panel1.MouseUp += panel1_MouseUp;
@@ -160,11 +164,12 @@
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatAppearance.MouseOverBackColor = Color.Crimson;
             button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(1196, 0);
+            button1.Location = new Point(1271, 0);
             button1.Name = "button1";
             button1.Size = new Size(56, 38);
             button1.TabIndex = 11;
             button1.UseVisualStyleBackColor = true;
+            button1.UseWaitCursor = true;
             button1.Click += button1_Click;
             // 
             // Medicament
@@ -173,7 +178,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(4, 137, 177);
-            ClientSize = new Size(1252, 644);
+            ClientSize = new Size(1327, 766);
             Controls.Add(panel1);
             Controls.Add(refreshGridView);
             Controls.Add(ajouter);
@@ -183,6 +188,7 @@
             Name = "Medicament";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "medicament";
+            UseWaitCursor = true;
             Load += refreshGridView_Click;
             ((System.ComponentModel.ISupportInitialize)affichageMedoc).EndInit();
             panel1.ResumeLayout(false);

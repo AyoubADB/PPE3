@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PPE3")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e88b3cfacd310b09d5af0ee970e9baf3755ac953")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a39681041253a2c4ede7d20eaee4a4ea1aaa4565")]
 [assembly: System.Reflection.AssemblyProductAttribute("PPE3")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PPE3")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
